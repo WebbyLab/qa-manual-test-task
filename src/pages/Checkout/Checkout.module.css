@@ -1,0 +1,190 @@
+.page {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.summary {
+  background: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+
+.summaryTitle {
+  font-size: 18px;
+  margin: 0 0 12px;
+  color: #1f2d3d;
+}
+
+.emptyCart {
+  color: #8a94a6;
+  margin: 0;
+}
+
+.summaryList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.summaryImg {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f1f4f8;
+}
+
+.summaryName {
+  flex: 1;
+  color: #1f2d3d;
+}
+
+.summaryQty {
+  color: #8a94a6;
+}
+
+.qtyStepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qtyBtn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #cdd5df;
+  border-radius: 6px;
+  background: #fff;
+  color: #1f4e79;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.qtyBtn:hover {
+  border-color: #1f4e79;
+}
+
+.qtyValue {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+  color: #1f2d3d;
+}
+
+.summaryPrice {
+  font-weight: 600;
+  color: #1f4e79;
+  min-width: 90px;
+  text-align: right;
+}
+
+.removeBtn {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #e3e8ee;
+  border-radius: 6px;
+  background: #fff;
+  color: #8a94a6;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  border-color: #d6336c;
+  color: #d6336c;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e3e8ee;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2d3d;
+}
+
+.title {
+  font-size: 26px;
+  color: #1f2d3d;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  color: #46566b;
+}
+
+.field input {
+  padding: 10px 12px;
+  border: 1px solid #cdd5df;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.error {
+  color: #d6336c;
+  font-size: 13px;
+}
+
+.submitBtn {
+  margin-top: 8px;
+  background: #1f4e79;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.successBox {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.successName {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f4e79;
+  margin: 8px 0;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 16px;
+  color: #1f4e79;
+  text-decoration: none;
+}

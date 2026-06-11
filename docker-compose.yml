@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    image: webbylab-shop
+    container_name: webbylab-shop
+    ports:
+      - "3000:3000"

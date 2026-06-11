@@ -1,0 +1,136 @@
+.card {
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  overflow-x: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.imageLink {
+  display: block;
+}
+
+.image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  background: #f1f4f8;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8a94a6;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2d3d;
+  text-decoration: none;
+}
+
+.name:hover {
+  color: #1f4e79;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f4e79;
+  width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .price {
+    width: 55px;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.buyBtn {
+  width: 100%;
+  background: #1f4e79;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buyBtn:hover {
+  background: #163a5c;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid #1f4e79;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.stepperBtn {
+  width: 38px;
+  height: 32px;
+  border: none;
+  background: #1f4e79;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stepperBtn:hover {
+  background: #163a5c;
+}
+
+.qty {
+  flex: 1;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2d3d;
+}
+
+.detailsBtn {
+  width: 100%;
+  background: #fff;
+  color: #1f4e79;
+  border: 1px solid #1f4e79;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.detailsBtn:hover {
+  background: #eef3f9;
+}
