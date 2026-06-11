@@ -1,7 +1,9 @@
 # WebbyLab-Shop
 
-A simple React online-store app: product catalog, product page, and a checkout
-form. There is no backend — mock data from a JS file is used.
+Hi there! 👋 Welcome to the practical part of your assessment. You will be
+testing a small online store application locally. **WebbyLab-Shop** features a
+classic e-commerce flow: a product catalog, individual product pages, and a
+checkout form.
 
 ## Tech stack
 
@@ -10,19 +12,11 @@ form. There is no backend — mock data from a JS file is used.
 - CSS Modules
 - Cart state via React Context (no Redux)
 
-## Structure
-
-- `/` — product catalog (search, category filter, sorting)
-- `/product/:id` — single product page
-- `/checkout` — checkout form
-
-Mock product data lives in `src/data/products.js`.
-
 ## Requirements
 
 - Node.js 20.19+ or 22.12+ (for local run)
 - npm
-- Docker (for running in a container) — optional
+- Docker (for running in a container)
 
 ## Running locally
 
@@ -64,3 +58,9 @@ The app will be available at http://localhost:3000
 
 Inside the container `npm run build` runs first, then the app is served with
 `npm run preview` (the Vite preview server together with the mock API).
+
+## Contacts & Support
+
+If you run into any issues during the setup, please reach out directly to the
+company representative (your recruiter or hiring manager) who is communicating
+with you regarding your application.
