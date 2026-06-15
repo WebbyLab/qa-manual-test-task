@@ -14,7 +14,7 @@ checkout form.
 
 ## Requirements
 
-- Node.js 20.19+ or 22.12+ (for local run)
+- Node.js 20.19+, 22.13+, or 24+ (for local run)
 - npm
 - Docker (for running in a container)
 
