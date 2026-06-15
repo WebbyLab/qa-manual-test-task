@@ -6,7 +6,8 @@ export default function ProductCard({ product }) {
   const { items, addToCart, decrementItem } = useCart();
   const navigate = useNavigate();
 
-  const quantity = items.filter((item) => item.id === product.id).length;
+  const cartItem = items.find((item) => item.id === product.id);
+  const quantity = cartItem ? cartItem.quantity : 0;
 
   const handleDetails = () => {
     const selected = undefined;

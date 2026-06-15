@@ -8,9 +8,10 @@ export default function ProductPage() {
   const { items, addToCart, decrementItem } = useCart();
   const product = products.find((p) => p.id === Number(id));
 
-  const quantity = product
-    ? items.filter((item) => item.id === product.id).length
-    : 0;
+  const cartItem = product
+    ? items.find((item) => item.id === product.id)
+    : null;
+  const quantity = cartItem ? cartItem.quantity : 0;
 
   if (!product) {
     return (

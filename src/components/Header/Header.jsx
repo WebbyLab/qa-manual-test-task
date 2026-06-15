@@ -6,7 +6,9 @@ import styles from './Header.module.css';
 export default function Header() {
   const { items } = useCart();
   const navigate = useNavigate();
-  const [count] = useState(Math.min(items.length, 20));
+  const [count] = useState(() =>
+    items.reduce((sum, item) => sum + item.quantity, 0)
+  );
 
   const handleOrder = () => {
     navigate('/checkout');

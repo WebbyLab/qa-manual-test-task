@@ -14,18 +14,10 @@ async function submitOrder(form) {
 }
 
 export default function Checkout() {
-  const { items, removeFromCart, clearCart } = useCart();
+  const { items, addToCart, decrementItem, removeFromCart, clearCart } =
+    useCart();
 
-  const orderLines = Object.values(
-    items.reduce((acc, item) => {
-      if (acc[item.id]) {
-        acc[item.id].quantity += 1;
-      } else {
-        acc[item.id] = { ...item, quantity: 1 };
-      }
-      return acc;
-    }, {})
-  );
+  const orderLines = items;
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -35,22 +27,10 @@ export default function Checkout() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [quantities, setQuantities] = useState({});
   const successRef = useRef(null);
 
-  const getQuantity = (line) =>
-    quantities[line.id] !== undefined ? quantities[line.id] : line.quantity;
-
-  const changeQuantity = (line, delta) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [line.id]:
-        (prev[line.id] !== undefined ? prev[line.id] : line.quantity) + delta,
-    }));
-  };
-
   const total = orderLines.reduce(
-    (sum, line) => sum + line.price * getQuantity(line),
+    (sum, line) => sum + line.price * line.quantity,
     0
   );
 
@@ -145,24 +125,22 @@ export default function Checkout() {
                       type="button"
                       className={styles.qtyBtn}
                       aria-label={`Зменшити кількість ${line.name}`}
-                      onClick={() => changeQuantity(line, -1)}
+                      onClick={() => decrementItem(line.id)}
                     >
                       −
                     </button>
-                    <span className={styles.qtyValue}>
-                      {Math.min(getQuantity(line), 20)}
-                    </span>
+                    <span className={styles.qtyValue}>{line.quantity}</span>
                     <button
                       type="button"
                       className={styles.qtyBtn}
                       aria-label={`Збільшити кількість ${line.name}`}
-                      onClick={() => changeQuantity(line, 1)}
+                      onClick={() => addToCart(line)}
                     >
                       +
                     </button>
                   </div>
                   <span className={styles.summaryPrice}>
-                    {(line.price * getQuantity(line)).toLocaleString('uk-UA')} грн
+                    {(line.price * line.quantity).toLocaleString('uk-UA')} грн
                   </span>
                   <button
                     type="button"
@@ -198,7 +176,7 @@ export default function Checkout() {
         <label className={styles.field}>
           <span>Email</span>
           <input
-            type="text"
+            type="email"
             name="email"
             value={form.email}
             onChange={handleChange}
@@ -209,7 +187,7 @@ export default function Checkout() {
         <label className={styles.field}>
           <span>Телефон</span>
           <input
-            type="text"
+            type="tel"
             name="phone"
             value={form.phone}
             onChange={handleChange}
