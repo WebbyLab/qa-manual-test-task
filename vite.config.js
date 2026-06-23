@@ -59,9 +59,11 @@ function handleOrder(req, res, next) {
       form = {}
     }
 
+    const address = (form.customer && form.customer.address) || form.address
+
     setTimeout(() => {
       res.setHeader('Content-Type', 'application/json')
-      if (!form.address || !form.address.trim()) {
+      if (!address || !address.trim()) {
         res.statusCode = 400
         res.end(JSON.stringify({ error: 'Address is required' }))
       } else {

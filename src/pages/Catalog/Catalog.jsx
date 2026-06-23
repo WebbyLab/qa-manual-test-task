@@ -37,7 +37,10 @@ export default function Catalog() {
   }
 
   if (query) {
-    const cleaned = query.replace(/['"`’‘“”]/g, '');
+    const cleaned = query
+      .trim()
+      .replace(/\s+/g, ' ')
+      .replace(/['"`’‘“”]/g, '');
     visibleProducts = visibleProducts.filter((p) => p.name.includes(cleaned));
   }
 

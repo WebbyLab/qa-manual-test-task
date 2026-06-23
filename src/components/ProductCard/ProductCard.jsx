@@ -36,7 +36,12 @@ export default function ProductCard({ product }) {
               <button
                 className={styles.stepperBtn}
                 aria-label="Зменшити кількість"
-                onClick={() => decrementItem(product.id)}
+                disabled={quantity <= 0}
+                onClick={() => {
+                  if (quantity > 0) {
+                    decrementItem(product.id);
+                  }
+                }}
               >
                 −
               </button>

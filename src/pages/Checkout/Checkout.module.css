@@ -165,6 +165,10 @@
   cursor: pointer;
 }
 
+.submitBtn:hover {
+  background: #163a5c;
+}
+
 .submitBtn:disabled {
   opacity: 0.7;
   cursor: not-allowed;

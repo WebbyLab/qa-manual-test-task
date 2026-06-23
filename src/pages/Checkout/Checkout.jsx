@@ -3,11 +3,19 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import styles from './Checkout.module.css';
 
-async function submitOrder(form) {
+async function submitOrder(form, items) {
   const response = await fetch('/api/order', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(form),
+    body: JSON.stringify({
+      customer: form,
+      items: items.map((item) => ({
+        productId: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+    }),
   });
   const data = await response.json();
   return { ok: response.ok, status: response.status, ...data };
@@ -75,7 +83,7 @@ export default function Checkout() {
     }
 
     setLoading(true);
-    const response = await submitOrder(form);
+    const response = await submitOrder(form, items);
     if (response.ok) {
       setLoading(false);
       setSuccess(true);

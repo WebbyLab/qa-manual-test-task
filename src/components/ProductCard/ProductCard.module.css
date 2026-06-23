@@ -111,6 +111,11 @@
   background: #163a5c;
 }
 
+.stepperBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .qty {
   flex: 1;
   text-align: center;
