@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import styles from './Catalog.module.css';
 
@@ -6,8 +7,23 @@ export default function Catalog() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [query, setQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Усі');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedCategory = searchParams.get('category') || 'Усі';
   const [sortOrder, setSortOrder] = useState('default');
+
+  const selectCategory = (category) => {
+    const next = new URLSearchParams(searchParams);
+    if (category === 'Усі') {
+      next.delete('category');
+    } else {
+      next.set('category', category);
+    }
+    setSearchParams(next, { replace: true });
+  };
+
+  useEffect(() => {
+    document.title = 'Товари | WebbyLab-Shop';
+  }, []);
 
   useEffect(() => {
     fetch('/api/products')
@@ -68,7 +84,7 @@ export default function Catalog() {
         <div className={styles.categories}>
           <button
             className={selectedCategory === 'Усі' ? styles.activeCat : styles.cat}
-            onClick={() => setSelectedCategory('Усі')}
+            onClick={() => selectCategory('Усі')}
           >
             Усі
           </button>
@@ -76,7 +92,7 @@ export default function Catalog() {
             <button
               key={cat}
               className={selectedCategory === cat ? styles.activeCat : styles.cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => selectCategory(cat)}
             >
               {cat}
             </button>

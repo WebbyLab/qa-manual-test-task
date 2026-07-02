@@ -43,6 +43,10 @@ export default function Checkout() {
   );
 
   useEffect(() => {
+    document.title = 'Замовлення | WebbyLab-Shop';
+  }, []);
+
+  useEffect(() => {
     if (!success || !successRef.current) {
       return;
     }

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { products } from '../../data/products';
 import { useCart } from '../../context/CartContext';
@@ -12,6 +13,12 @@ export default function ProductPage() {
     ? items.find((item) => item.id === product.id)
     : null;
   const quantity = cartItem ? cartItem.quantity : 0;
+
+  useEffect(() => {
+    document.title = product
+      ? `${product.name} | WebbyLab-Shop`
+      : 'Товар не знайдено | WebbyLab-Shop';
+  }, [product]);
 
   if (!product) {
     return (
